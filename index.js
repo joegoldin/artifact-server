@@ -13,13 +13,13 @@ server.use(bodyParser.raw({
     limit: '50mb'
 }))
 
-server.use((req, res, next) => {
-    if (req.get('Authorization') !== `Bearer ${process.env.AUTH_KEY}`) {
-        res.status(401).json({message: 'You are not authorized'});
-    } else {
-        next();
-    }
-})
+// server.use((req, res, next) => {
+//     if (req.get('Authorization') !== `Bearer ${process.env.AUTH_KEY}`) {
+//         res.status(401).json({message: 'You are not authorized'});
+//     } else {
+//         next();
+//     }
+// })
 
 server.get('/', (req, res) => {
     res.status(200).send({
